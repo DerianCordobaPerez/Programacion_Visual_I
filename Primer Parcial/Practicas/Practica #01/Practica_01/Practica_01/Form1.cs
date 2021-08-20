@@ -9,111 +9,110 @@ namespace Practica_01
     public partial class Form1 : Form
     {
 
-        private Car car = null;
-        private List<string> Propertys = new List<string>() { "Rine", "Transmission", "Status", "Brand", "Price", "Mileage" };
-        private List<string> PropertiesSpanish = new List<string>() { "Rines", "Trasmision", "Estado", "Marca", "Precio", "Kilometro" };
+        private Auto _auto;
+        private List<string> propiedades = new List<string>() { "Rines", "Transmision", "Estado", "Marca", "Precio", "Kilometraje" };
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private IEnumerable<Control> GetControls(string key) 
+        private IEnumerable<Control> ObtenerControles(string llave) 
             => Controls
                 .OfType<Control>()
-                .Where(control => control.Name.StartsWith(key))
+                .Where(control => control.Name.StartsWith(llave))
                 .Select(control => control);
 
-        private bool ValidateFields(IEnumerable<Control> controls) 
-            => controls.All(control => !string.IsNullOrEmpty(control.Text));
+        private bool ValidarCampos(IEnumerable<Control> controles) 
+            => controles.All(control => !string.IsNullOrEmpty(control.Text));
 
-        private void ResetFields(IEnumerable<Control> controls)
+        private void ReestablecerCampos(IEnumerable<Control> controles)
         {
-            foreach (Control control in controls)
+            foreach (Control control in controles)
                 control.Text = string.Empty;
         }
 
-        private Car NewCar(List<string> values)
+        private Auto NuevoAuto(List<string> valores)
         {
-            Car car = new Car();
+            Auto car = new Auto();
 
-            for (int i = 0; i < values.Count; ++i)
+            for (int i = 0; i < valores.Count; ++i)
             {
-                if (Propertys.ElementAt(i).CompareTo("Price") == 0 || Propertys.ElementAt(i).CompareTo("Mileage") == 0)
-                    car.GetType().GetProperty(Propertys.ElementAt(i))
-                        .SetValue(car, Convert.ToDouble(values[i]));
+                if (String.Compare(propiedades.ElementAt(i), "Precio", StringComparison.Ordinal) == 0 || String.Compare(propiedades.ElementAt(i), "Kilometraje", StringComparison.Ordinal) == 0)
+                    car.GetType().GetProperty(propiedades.ElementAt(i))
+                        ?.SetValue(car, Convert.ToDouble(valores[i]));
                 else
-                    car.GetType().GetProperty(Propertys.ElementAt(i))
-                        .SetValue(car, values[i]);
+                    car.GetType().GetProperty(propiedades.ElementAt(i))
+                        ?.SetValue(car, valores[i]);
             }
 
             return car;
         }
 
-        private void SaveData(IEnumerable<Control> controls)
+        private void SaveData(IEnumerable<Control> controles)
         {
-            if (ValidateFields(controls))
+            if (ValidarCampos(controles))
             {
                 MessageBox.Show("Datos guardados correctamente", "Exito al guardar");
-                car = NewCar(controls.Select(control => control.Text.Trim()).ToList());
-                ResetFields(controls);
+                _auto = NuevoAuto(controles.Select(control => control.Text.Trim()).ToList());
+                ReestablecerCampos(controles);
             }
             else
                 MessageBox.Show("Error al guardar los datos", "Ocurrio Error");
         }
 
-        private void AllowOnlyNumberTextBox(object sender, KeyPressEventArgs e)
+        private void PermitirSoloNumeros(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
                 e.Handled = true;
 
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            if ((e.KeyChar == '.') && (((TextBox) sender).Text.IndexOf('.') > -1))
                 e.Handled = true;
         }
 
-        private void MoveCursorAndValidateTextBox(TextBox textBox)
+        private void ValidatarTextBoxs(TextBox textBox)
         {
             if (textBox.Text.StartsWith("."))
-                textBox.Text = $"0{textBox.Text}";
+                textBox.Text = $@"0{textBox.Text}";
         }
 
         private void buttonShowCars_Click(object sender, EventArgs e)
         {
-            if (car != null)
+            if (_auto != null)
             {
-                string content = "AUTO REGISTRADO\n";
-                for (int i = 0; i < Propertys.Count; ++i)
-                    content += $"{PropertiesSpanish.ElementAt(i)}: {car.GetType().GetProperty(Propertys.ElementAt(i)).GetValue(car, null)}\n";
+                string contentido = "AUTO REGISTRADO\n";
+                for (int i = 0; i < propiedades.Count; ++i)
+                    contentido += $"{propiedades.ElementAt(i)}: {_auto.GetType().GetProperty(propiedades.ElementAt(i))?.GetValue(_auto, null)}\n";
 
-                MessageBox.Show($"{content}");
+                MessageBox.Show($@"{contentido}");
             }
             else
-                MessageBox.Show("No se ha ingresado ningun auto");
+                MessageBox.Show(@"No se ha ingresado ningun auto");
         }
 
         private void buttonSaveCar_Click(object sender, EventArgs e)
         {
-            SaveData(GetControls("Control"));
+            SaveData(ObtenerControles("Control"));
         }
 
         private void ControlTextBoxMileage_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AllowOnlyNumberTextBox(sender, e);
+            PermitirSoloNumeros(sender, e);
         }
 
         private void ControlTextBoxPrice_KeyPress(object sender, KeyPressEventArgs e)
         {    
-            AllowOnlyNumberTextBox(sender, e);
+            PermitirSoloNumeros(sender, e);
         }
 
         private void ControlTextBoxMileage_Leave(object sender, EventArgs e)
         {
-            MoveCursorAndValidateTextBox(ControlTextBoxMileage);
+            ValidatarTextBoxs(ControlTextBoxMileage);
         }
 
         private void ControlTextBoxPrice_Leave(object sender, EventArgs e)
         {
-            MoveCursorAndValidateTextBox(ControlTextBoxPrice);
+            ValidatarTextBoxs(ControlTextBoxPrice);
         }
     }
 }
