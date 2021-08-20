@@ -162,6 +162,7 @@ namespace Practica_01
             // 
             // ControlComboBoxBrand
             // 
+            this.ControlComboBoxBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ControlComboBoxBrand.Items.AddRange(new object[] {
             "Nissan",
             "Toyota",
@@ -175,6 +176,7 @@ namespace Practica_01
             // 
             // ControlComboBoxStatus
             // 
+            this.ControlComboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ControlComboBoxStatus.Items.AddRange(new object[] {
             "Nuevo",
             "Usado"});
@@ -185,6 +187,7 @@ namespace Practica_01
             // 
             // ControlComboBoxTransmission
             // 
+            this.ControlComboBoxTransmission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ControlComboBoxTransmission.Items.AddRange(new object[] {
             "Manual",
             "Automatico"});
@@ -195,6 +198,7 @@ namespace Practica_01
             // 
             // ControlComboBoxRine
             // 
+            this.ControlComboBoxRine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ControlComboBoxRine.Items.AddRange(new object[] {
             "Si",
             "No"});

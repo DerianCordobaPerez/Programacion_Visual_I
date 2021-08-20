@@ -24,34 +24,40 @@ namespace Practica_01
                 .Select(control => control);
 
         private bool ValidarCampos(IEnumerable<Control> controles) 
-            => controles.All(control => !string.IsNullOrEmpty(control.Text));
+            => controles.All(control => !string.IsNullOrWhiteSpace(control.Text));
 
         private void ReestablecerCampos(IEnumerable<Control> controles)
         {
             foreach (Control control in controles)
-                control.Text = string.Empty;
+            {
+                if (control is TextBox)
+                    control.Text = string.Empty;
+                else
+                    ((ComboBox)control).SelectedIndex = -1;
+                    
+            }
         }
 
         private Auto NuevoAuto(List<string> valores)
         {
-            Auto car = new Auto();
+            Auto auto = new Auto();
 
             for (int i = 0; i < valores.Count; ++i)
             {
                 if (String.Compare(propiedades.ElementAt(i), "Precio", StringComparison.Ordinal) == 0 || String.Compare(propiedades.ElementAt(i), "Kilometraje", StringComparison.Ordinal) == 0)
-                    car.GetType().GetProperty(propiedades.ElementAt(i))
-                        ?.SetValue(car, Convert.ToDouble(valores[i]));
+                    auto.GetType().GetProperty(propiedades.ElementAt(i))
+                        ?.SetValue(auto, Convert.ToDouble(valores[i]));
                 else
-                    car.GetType().GetProperty(propiedades.ElementAt(i))
-                        ?.SetValue(car, valores[i]);
+                    auto.GetType().GetProperty(propiedades.ElementAt(i))
+                        ?.SetValue(auto, valores[i]);
             }
 
-            return car;
+            return auto;
         }
 
-        private void SaveData(IEnumerable<Control> controles)
+        private void GuardarAutos(IEnumerable<Control> controles)
         {
-            if (ValidarCampos(controles))
+            if (ValidarCampos(controles) && Convert.ToDouble(ControlTextBoxPrice.Text) > 0)
             {
                 MessageBox.Show("Datos guardados correctamente", "Exito al guardar");
                 _auto = NuevoAuto(controles.Select(control => control.Text.Trim()).ToList());
@@ -92,7 +98,7 @@ namespace Practica_01
 
         private void buttonSaveCar_Click(object sender, EventArgs e)
         {
-            SaveData(ObtenerControles("Control"));
+            GuardarAutos(ObtenerControles("Control"));
         }
 
         private void ControlTextBoxMileage_KeyPress(object sender, KeyPressEventArgs e)
