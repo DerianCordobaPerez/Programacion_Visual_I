@@ -81,7 +81,7 @@ namespace Practica_01
             this.ControlTextBoxMileage.Location = new System.Drawing.Point(185, 202);
             this.ControlTextBoxMileage.Name = "ControlTextBoxMileage";
             this.ControlTextBoxMileage.Size = new System.Drawing.Size(156, 20);
-            this.ControlTextBoxMileage.TabIndex = 4;
+            this.ControlTextBoxMileage.TabIndex = 2;
             this.ControlTextBoxMileage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ControlTextBoxMileage_KeyPress);
             this.ControlTextBoxMileage.Leave += new System.EventHandler(this.ControlTextBoxMileage_Leave);
             // 
@@ -110,7 +110,7 @@ namespace Practica_01
             this.ControlTextBoxPrice.Location = new System.Drawing.Point(517, 150);
             this.ControlTextBoxPrice.Name = "ControlTextBoxPrice";
             this.ControlTextBoxPrice.Size = new System.Drawing.Size(156, 20);
-            this.ControlTextBoxPrice.TabIndex = 8;
+            this.ControlTextBoxPrice.TabIndex = 4;
             this.ControlTextBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ControlTextBoxPrice_KeyPress);
             this.ControlTextBoxPrice.Leave += new System.EventHandler(this.ControlTextBoxPrice_Leave);
             // 
@@ -142,7 +142,7 @@ namespace Practica_01
             this.buttonSaveCar.Location = new System.Drawing.Point(64, 316);
             this.buttonSaveCar.Name = "buttonSaveCar";
             this.buttonSaveCar.Size = new System.Drawing.Size(277, 51);
-            this.buttonSaveCar.TabIndex = 13;
+            this.buttonSaveCar.TabIndex = 7;
             this.buttonSaveCar.Text = "Guardar";
             this.buttonSaveCar.UseVisualStyleBackColor = false;
             this.buttonSaveCar.Click += new System.EventHandler(this.buttonSaveCar_Click);
@@ -155,7 +155,7 @@ namespace Practica_01
             this.buttonShowCars.Location = new System.Drawing.Point(396, 316);
             this.buttonShowCars.Name = "buttonShowCars";
             this.buttonShowCars.Size = new System.Drawing.Size(277, 51);
-            this.buttonShowCars.TabIndex = 14;
+            this.buttonShowCars.TabIndex = 8;
             this.buttonShowCars.Text = "Ver Registros";
             this.buttonShowCars.UseVisualStyleBackColor = false;
             this.buttonShowCars.Click += new System.EventHandler(this.buttonShowCars_Click);
@@ -172,7 +172,7 @@ namespace Practica_01
             this.ControlComboBoxBrand.Location = new System.Drawing.Point(185, 150);
             this.ControlComboBoxBrand.Name = "ControlComboBoxBrand";
             this.ControlComboBoxBrand.Size = new System.Drawing.Size(156, 21);
-            this.ControlComboBoxBrand.TabIndex = 15;
+            this.ControlComboBoxBrand.TabIndex = 1;
             // 
             // ControlComboBoxStatus
             // 
@@ -183,7 +183,7 @@ namespace Practica_01
             this.ControlComboBoxStatus.Location = new System.Drawing.Point(185, 250);
             this.ControlComboBoxStatus.Name = "ControlComboBoxStatus";
             this.ControlComboBoxStatus.Size = new System.Drawing.Size(156, 21);
-            this.ControlComboBoxStatus.TabIndex = 16;
+            this.ControlComboBoxStatus.TabIndex = 3;
             // 
             // ControlComboBoxTransmission
             // 
@@ -194,7 +194,7 @@ namespace Practica_01
             this.ControlComboBoxTransmission.Location = new System.Drawing.Point(517, 202);
             this.ControlComboBoxTransmission.Name = "ControlComboBoxTransmission";
             this.ControlComboBoxTransmission.Size = new System.Drawing.Size(156, 21);
-            this.ControlComboBoxTransmission.TabIndex = 17;
+            this.ControlComboBoxTransmission.TabIndex = 5;
             // 
             // ControlComboBoxRine
             // 
@@ -205,7 +205,7 @@ namespace Practica_01
             this.ControlComboBoxRine.Location = new System.Drawing.Point(517, 250);
             this.ControlComboBoxRine.Name = "ControlComboBoxRine";
             this.ControlComboBoxRine.Size = new System.Drawing.Size(156, 21);
-            this.ControlComboBoxRine.TabIndex = 18;
+            this.ControlComboBoxRine.TabIndex = 6;
             // 
             // Form1
             // 

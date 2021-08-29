@@ -44,7 +44,7 @@ namespace Practica_01
 
             for (int i = 0; i < valores.Count; ++i)
             {
-                if (String.Compare(propiedades.ElementAt(i), "Precio", StringComparison.Ordinal) == 0 || String.Compare(propiedades.ElementAt(i), "Kilometraje", StringComparison.Ordinal) == 0)
+                if (string.Compare(propiedades.ElementAt(i), "Precio", StringComparison.Ordinal) == 0 || string.Compare(propiedades.ElementAt(i), "Kilometraje", StringComparison.Ordinal) == 0)
                     auto.GetType().GetProperty(propiedades.ElementAt(i))
                         ?.SetValue(auto, Convert.ToDouble(valores[i]));
                 else
@@ -78,6 +78,9 @@ namespace Practica_01
 
         private void ValidatarTextBoxs(TextBox textBox)
         {
+            if(textBox.Text.CompareTo(".") == 0)
+                textBox.Text = $@"0{textBox.Text}0";
+
             if (textBox.Text.StartsWith("."))
                 textBox.Text = $@"0{textBox.Text}";
         }
