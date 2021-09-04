@@ -48,7 +48,8 @@ namespace Practica_02
                 EliminarTodosAutosPorMarca();
             else
                 EliminarAuto();
-
+            
+            ButtonEliminar.Enabled = autos.Count > 0;
             BuscarAutosPorMarca();
         }
 
@@ -64,7 +65,7 @@ namespace Practica_02
         {
             if (DataGridViewAutos.Rows.Count > 0)
             {
-                if (DataGridViewAutos.CurrentRow.Index != -1)
+                if (DataGridViewAutos.CurrentRow != null && DataGridViewAutos.CurrentRow.Index != -1)
                     autos.RemoveAt(DataGridViewAutos.CurrentRow.Index);
             }
         }
