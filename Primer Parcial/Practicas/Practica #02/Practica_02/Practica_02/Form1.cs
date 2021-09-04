@@ -95,7 +95,7 @@ namespace Practica_02
 
         private void ValidatarTextBoxs(TextBox textBox)
         {
-            if (textBox.Text.CompareTo(".") == 0)
+            if (String.Compare(textBox.Text, ".", StringComparison.Ordinal) == 0)
                 textBox.Text = $@"0{textBox.Text}0";
 
             if (textBox.Text.StartsWith("."))
