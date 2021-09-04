@@ -29,73 +29,39 @@ namespace Practica_02
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kilometraje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Transmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rines = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewAutos = new System.Windows.Forms.DataGridView();
             this.ComboBoxBuscar = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ButtonEliminar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAutos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DataGridViewAutos
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Marca,
-            this.Kilometraje,
-            this.Estado,
-            this.Precio,
-            this.Transmision,
-            this.Rines});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 67);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(643, 150);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            // 
-            // Kilometraje
-            // 
-            this.Kilometraje.HeaderText = "Kilometraje";
-            this.Kilometraje.Name = "Kilometraje";
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // Transmision
-            // 
-            this.Transmision.HeaderText = "Transmision";
-            this.Transmision.Name = "Transmision";
-            // 
-            // Rines
-            // 
-            this.Rines.HeaderText = "Rines de lujo";
-            this.Rines.Name = "Rines";
+            this.DataGridViewAutos.AllowUserToAddRows = false;
+            this.DataGridViewAutos.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.DataGridViewAutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewAutos.Location = new System.Drawing.Point(12, 67);
+            this.DataGridViewAutos.Name = "DataGridViewAutos";
+            this.DataGridViewAutos.Size = new System.Drawing.Size(643, 150);
+            this.DataGridViewAutos.TabIndex = 0;
             // 
             // ComboBoxBuscar
             // 
             this.ComboBoxBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxBuscar.FormattingEnabled = true;
+            this.ComboBoxBuscar.Items.AddRange(new object[] {
+            "Todos",
+            "Honda",
+            "Hyundai",
+            "Kia",
+            "Nissan",
+            "Toyota"});
             this.ComboBoxBuscar.Location = new System.Drawing.Point(12, 40);
             this.ComboBoxBuscar.Name = "ComboBoxBuscar";
             this.ComboBoxBuscar.Size = new System.Drawing.Size(149, 21);
             this.ComboBoxBuscar.TabIndex = 1;
+            this.ComboBoxBuscar.SelectedIndexChanged += new System.EventHandler(this.ComboBoxBuscar_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -107,31 +73,32 @@ namespace Practica_02
             this.label1.TabIndex = 2;
             this.label1.Text = "Buscar autos por marca";
             // 
-            // button1
+            // ButtonEliminar
             // 
-            this.button1.BackColor = System.Drawing.Color.Indigo;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(547, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 21);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ButtonEliminar.BackColor = System.Drawing.Color.Indigo;
+            this.ButtonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonEliminar.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.ButtonEliminar.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonEliminar.Location = new System.Drawing.Point(547, 39);
+            this.ButtonEliminar.Name = "ButtonEliminar";
+            this.ButtonEliminar.Size = new System.Drawing.Size(108, 21);
+            this.ButtonEliminar.TabIndex = 3;
+            this.ButtonEliminar.Text = "Eliminar";
+            this.ButtonEliminar.UseVisualStyleBackColor = false;
+            this.ButtonEliminar.Click += new System.EventHandler(this.ButtonEliminar_Click);
             // 
             // VerAutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 229);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonEliminar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ComboBoxBuscar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGridViewAutos);
             this.Name = "VerAutos";
-            this.Text = "VerAutos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Ver autos";
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewAutos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,15 +106,9 @@ namespace Practica_02
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Kilometraje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Transmision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rines;
+        private System.Windows.Forms.DataGridView DataGridViewAutos;
         private System.Windows.Forms.ComboBox ComboBoxBuscar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonEliminar;
     }
 }

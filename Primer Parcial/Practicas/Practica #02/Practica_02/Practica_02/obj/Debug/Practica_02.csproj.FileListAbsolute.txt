@@ -3,9 +3,9 @@ C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas
 C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\bin\Debug\Practica_02.pdb
 C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.Form1.resources
 C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.Properties.Resources.resources
+C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.VerAutos.resources
 C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.csproj.GenerateResource.cache
 C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.csproj.CoreCompileInputs.cache
 C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.exe
 C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.pdb
 C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.csproj.AssemblyReference.cache
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #02\Practica_02\Practica_02\obj\Debug\Practica_02.VerAutos.resources

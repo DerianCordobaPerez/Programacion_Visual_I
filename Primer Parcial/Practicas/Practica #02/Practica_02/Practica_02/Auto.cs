@@ -7,7 +7,7 @@ namespace Practica_02
         public string Estado { get; set; }
         public string Transmision { get; set; }
         public bool Rines { get; set; }
-        public double Precio { get; set; }
         public double Kilometraje { get; set; }
+        public double Precio { get; set; }
     }
 }

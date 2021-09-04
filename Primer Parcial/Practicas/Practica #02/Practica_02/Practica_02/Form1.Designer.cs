@@ -31,10 +31,9 @@ namespace Practica_02
         {
             this.components = new System.ComponentModel.Container();
             this.ControlTextBoxKilometraje = new System.Windows.Forms.TextBox();
-            this.ControlComboBoxKilometraje = new System.Windows.Forms.ComboBox();
+            this.ControlComboBoxEstado = new System.Windows.Forms.ComboBox();
             this.ControlComboBoxMarca = new System.Windows.Forms.ComboBox();
             this.ControlTextBoxPrecio = new System.Windows.Forms.TextBox();
-            this.ControlComboBoxTransmision = new System.Windows.Forms.ComboBox();
             this.RadioButtonSi = new System.Windows.Forms.RadioButton();
             this.RadioButtonNo = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@ namespace Practica_02
             this.ButtonGuardar = new System.Windows.Forms.Button();
             this.ButtonVer = new System.Windows.Forms.Button();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ControlComboBoxTransmision = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,17 +58,17 @@ namespace Practica_02
             this.ControlTextBoxKilometraje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ControlTextBoxKilometraje_KeyPress);
             this.ControlTextBoxKilometraje.Leave += new System.EventHandler(this.ControlTextBoxKilometraje_Leave);
             // 
-            // ControlComboBoxKilometraje
+            // ControlComboBoxEstado
             // 
-            this.ControlComboBoxKilometraje.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ControlComboBoxKilometraje.FormattingEnabled = true;
-            this.ControlComboBoxKilometraje.Items.AddRange(new object[] {
+            this.ControlComboBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ControlComboBoxEstado.FormattingEnabled = true;
+            this.ControlComboBoxEstado.Items.AddRange(new object[] {
             "Nuevo",
             "Usado"});
-            this.ControlComboBoxKilometraje.Location = new System.Drawing.Point(12, 145);
-            this.ControlComboBoxKilometraje.Name = "ControlComboBoxKilometraje";
-            this.ControlComboBoxKilometraje.Size = new System.Drawing.Size(181, 21);
-            this.ControlComboBoxKilometraje.TabIndex = 3;
+            this.ControlComboBoxEstado.Location = new System.Drawing.Point(12, 145);
+            this.ControlComboBoxEstado.Name = "ControlComboBoxEstado";
+            this.ControlComboBoxEstado.Size = new System.Drawing.Size(181, 21);
+            this.ControlComboBoxEstado.TabIndex = 3;
             // 
             // ControlComboBoxMarca
             // 
@@ -78,7 +78,7 @@ namespace Practica_02
             "Honda",
             "Hyundai",
             "Kia",
-            "Nissan ",
+            "Nissan",
             "Toyota"});
             this.ControlComboBoxMarca.Location = new System.Drawing.Point(12, 29);
             this.ControlComboBoxMarca.Name = "ControlComboBoxMarca";
@@ -94,18 +94,6 @@ namespace Practica_02
             this.ControlTextBoxPrecio.TabIndex = 4;
             this.ControlTextBoxPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ControlTextBoxPrecio_KeyPress);
             this.ControlTextBoxPrecio.Leave += new System.EventHandler(this.ControlTextBoxPrecio_Leave);
-            // 
-            // ControlComboBoxTransmision
-            // 
-            this.ControlComboBoxTransmision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ControlComboBoxTransmision.FormattingEnabled = true;
-            this.ControlComboBoxTransmision.Items.AddRange(new object[] {
-            "Manual",
-            "Automatica"});
-            this.ControlComboBoxTransmision.Location = new System.Drawing.Point(225, 87);
-            this.ControlComboBoxTransmision.Name = "ControlComboBoxTransmision";
-            this.ControlComboBoxTransmision.Size = new System.Drawing.Size(181, 21);
-            this.ControlComboBoxTransmision.TabIndex = 5;
             // 
             // RadioButtonSi
             // 
@@ -223,11 +211,24 @@ namespace Practica_02
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
+            // ControlComboBoxTransmision
+            // 
+            this.ControlComboBoxTransmision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ControlComboBoxTransmision.FormattingEnabled = true;
+            this.ControlComboBoxTransmision.Items.AddRange(new object[] {
+            "Automatica",
+            "Manual"});
+            this.ControlComboBoxTransmision.Location = new System.Drawing.Point(225, 89);
+            this.ControlComboBoxTransmision.Name = "ControlComboBoxTransmision";
+            this.ControlComboBoxTransmision.Size = new System.Drawing.Size(181, 21);
+            this.ControlComboBoxTransmision.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 254);
+            this.Controls.Add(this.ControlComboBoxTransmision);
             this.Controls.Add(this.ButtonVer);
             this.Controls.Add(this.ButtonGuardar);
             this.Controls.Add(this.label6);
@@ -238,13 +239,12 @@ namespace Practica_02
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RadioButtonNo);
             this.Controls.Add(this.RadioButtonSi);
-            this.Controls.Add(this.ControlComboBoxTransmision);
             this.Controls.Add(this.ControlTextBoxPrecio);
             this.Controls.Add(this.ControlComboBoxMarca);
-            this.Controls.Add(this.ControlComboBoxKilometraje);
+            this.Controls.Add(this.ControlComboBoxEstado);
             this.Controls.Add(this.ControlTextBoxKilometraje);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Agregar auto";
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -253,9 +253,9 @@ namespace Practica_02
 
         #endregion
 
-        private System.Windows.Forms.TextBox ControlTextBoxKilometraje;
-        private System.Windows.Forms.ComboBox ControlComboBoxKilometraje;
         private System.Windows.Forms.ComboBox ControlComboBoxMarca;
+        private System.Windows.Forms.TextBox ControlTextBoxKilometraje;
+        private System.Windows.Forms.ComboBox ControlComboBoxEstado;
         private System.Windows.Forms.TextBox ControlTextBoxPrecio;
         private System.Windows.Forms.ComboBox ControlComboBoxTransmision;
         private System.Windows.Forms.RadioButton RadioButtonSi;

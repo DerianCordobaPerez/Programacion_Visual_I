@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Practica_02
@@ -13,8 +9,8 @@ namespace Practica_02
     public partial class Form1 : Form
     {
 
-        private List<Auto> autos = new List<Auto>();
-        private List<string> propiedades = new List<string>() { "Rines", "Transmision", "Estado", "Marca", "Precio", "Kilometraje" };
+        private ListaAutos autos = ListaAutos.ObtenerInstancia();
+        private List<string> propiedades = new List<string>() { "Transmision", "Precio", "Marca", "Estado", "Kilometraje" };
 
         public Form1()
         {
@@ -50,8 +46,9 @@ namespace Practica_02
                     control.Text = string.Empty;
                 else if (control is ComboBox)
                     ((ComboBox)control).SelectedIndex = -1;
-                else
-                    ((RadioButton)control).Checked = false;
+
+                RadioButtonSi.Checked = RadioButtonNo.Checked = false;
+                ErrorProvider.Clear();
             }
         }
 
@@ -59,24 +56,17 @@ namespace Practica_02
         {
             Auto auto = new Auto();
 
-            foreach(var l in valores)
-                MessageBox.Show(l);
-            
             for (int i = 0; i < valores.Count; ++i)
             {
-
-                if (string.Compare(propiedades.ElementAt(i), "Rines", StringComparison.Ordinal) == 0)
-                    auto.Rines = RadioButtonSi.Checked;
+                if (string.Compare(propiedades.ElementAt(i), "Precio", StringComparison.Ordinal) == 0 || string.Compare(propiedades.ElementAt(i), "Kilometraje", StringComparison.Ordinal) == 0)
+                    auto.GetType().GetProperty(propiedades.ElementAt(i))
+                        ?.SetValue(auto, Convert.ToDouble(valores[i]));
                 else
-                {
-                    if (string.Compare(propiedades.ElementAt(i), "Precio", StringComparison.Ordinal) == 0 || string.Compare(propiedades.ElementAt(i), "Kilometraje", StringComparison.Ordinal) == 0)
-                        auto.GetType().GetProperty(propiedades.ElementAt(i))
-                            ?.SetValue(auto, Convert.ToDouble(valores[i]));
-                    else
-                        auto.GetType().GetProperty(propiedades.ElementAt(i))
-                            ?.SetValue(auto, valores[i]);
-                }
+                    auto.GetType().GetProperty(propiedades.ElementAt(i))
+                        ?.SetValue(auto, valores[i]);   
             }
+
+            auto.Rines = RadioButtonSi.Checked;
 
             return auto;
         }
@@ -107,6 +97,9 @@ namespace Practica_02
 
             if (textBox.Text.StartsWith("."))
                 textBox.Text = $@"0{textBox.Text}";
+            
+            if(textBox.Text.EndsWith("."))
+                textBox.Text = $@"{textBox.Text}0";
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
@@ -115,12 +108,7 @@ namespace Practica_02
         }
 
         private void ButtonVer_Click(object sender, EventArgs e)
-        {
-            if (autos.Count > 0)
-                new VerAutos().ShowDialog();
-            else
-                MessageBox.Show("Aun no se han agregado ningun auto", "Error al ver los autos");
-        }
+            => new VerAutos().ShowDialog();
 
         private void ControlTextBoxKilometraje_KeyPress(object sender, KeyPressEventArgs e)
         {
