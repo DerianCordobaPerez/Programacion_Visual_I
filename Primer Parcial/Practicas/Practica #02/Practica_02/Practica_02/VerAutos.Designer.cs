@@ -39,10 +39,12 @@ namespace Practica_02
             // DataGridViewAutos
             // 
             this.DataGridViewAutos.AllowUserToAddRows = false;
+            this.DataGridViewAutos.AllowUserToDeleteRows = false;
             this.DataGridViewAutos.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.DataGridViewAutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewAutos.Location = new System.Drawing.Point(12, 67);
             this.DataGridViewAutos.Name = "DataGridViewAutos";
+            this.DataGridViewAutos.ReadOnly = true;
             this.DataGridViewAutos.Size = new System.Drawing.Size(643, 150);
             this.DataGridViewAutos.TabIndex = 0;
             // 

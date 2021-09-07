@@ -1,7 +1,7 @@
 ﻿
 namespace Practica_02
 {
-    class Auto
+    public class Auto
     {
         public string Marca { get; set; }
         public string Estado { get; set; }
@@ -10,4 +10,5 @@ namespace Practica_02
         public double Kilometraje { get; set; }
         public double Precio { get; set; }
     }
+
 }

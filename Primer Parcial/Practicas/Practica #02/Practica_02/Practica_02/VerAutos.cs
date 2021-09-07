@@ -9,11 +9,17 @@ namespace Practica_02
 {
     public partial class VerAutos : Form
     {
-        private ListaAutos autos = ListaAutos.ObtenerInstancia();
+        public List<Auto> autos { get; set; }
 
         public VerAutos()
         {
             InitializeComponent();
+        }
+
+        public VerAutos(List<Auto> _autos)
+        {
+            InitializeComponent();
+            autos = _autos;
             MostrarDatos(autos);
             ComboBoxBuscar.SelectedIndex = 0;
             ButtonEliminar.Enabled = autos.Count > 0;

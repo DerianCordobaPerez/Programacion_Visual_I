@@ -9,7 +9,7 @@ namespace Practica_02
     public partial class Form1 : Form
     {
 
-        private ListaAutos autos = ListaAutos.ObtenerInstancia();
+        public List<Auto> autos = new List<Auto>();
         private List<string> propiedades = new List<string>() { "Transmision", "Precio", "Marca", "Estado", "Kilometraje" };
 
         public Form1()
@@ -111,7 +111,7 @@ namespace Practica_02
         }
 
         private void ButtonVer_Click(object sender, EventArgs e)
-            => new VerAutos().ShowDialog();
+            => new VerAutos(autos).ShowDialog();
 
         private void ControlTextBoxKilometraje_KeyPress(object sender, KeyPressEventArgs e)
         {

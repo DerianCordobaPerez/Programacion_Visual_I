@@ -244,6 +244,7 @@ namespace Practica_02
             this.Controls.Add(this.ControlComboBoxEstado);
             this.Controls.Add(this.ControlTextBoxKilometraje);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Agregar auto";
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
