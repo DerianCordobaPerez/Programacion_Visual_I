@@ -73,8 +73,6 @@ namespace Practica_02
 
         private void GuardarAutos(IEnumerable<Control> controles)
         {
-            if (Convert.ToDouble(ControlTextBoxPrecio.Text) <= 0)
-                ErrorProvider.SetError(ControlTextBoxPrecio, "El precio tiene que ser mayor a 0");
                 
             if (ValidarCampos(controles) && Convert.ToDouble(ControlTextBoxPrecio.Text) > 0)
             {
