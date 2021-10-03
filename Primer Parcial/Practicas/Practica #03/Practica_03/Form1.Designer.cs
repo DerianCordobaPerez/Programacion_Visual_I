@@ -59,9 +59,9 @@ namespace Practica_03
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNormal = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGris = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCentrada = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAjustar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonZoom = new System.Windows.Forms.ToolStripButton();
             this.comboBoxSelectorImagen = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxImagen = new System.Windows.Forms.PictureBox();
@@ -81,50 +81,67 @@ namespace Practica_03
             // 
             // buttonVolverInicio
             // 
+            this.buttonVolverInicio.BackColor = System.Drawing.Color.Indigo;
+            this.buttonVolverInicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonVolverInicio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonVolverInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVolverInicio.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonVolverInicio.Location = new System.Drawing.Point(12, 412);
             this.buttonVolverInicio.Name = "buttonVolverInicio";
             this.buttonVolverInicio.Size = new System.Drawing.Size(110, 53);
             this.buttonVolverInicio.TabIndex = 0;
             this.buttonVolverInicio.Text = "<<";
-            this.buttonVolverInicio.UseVisualStyleBackColor = true;
+            this.buttonVolverInicio.UseVisualStyleBackColor = false;
             this.buttonVolverInicio.Click += new System.EventHandler(this.buttonVolverInicio_Click);
             // 
             // buttonVolverUna
             // 
+            this.buttonVolverUna.BackColor = System.Drawing.Color.Indigo;
+            this.buttonVolverUna.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonVolverUna.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonVolverUna.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVolverUna.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonVolverUna.Location = new System.Drawing.Point(128, 412);
             this.buttonVolverUna.Name = "buttonVolverUna";
             this.buttonVolverUna.Size = new System.Drawing.Size(110, 53);
             this.buttonVolverUna.TabIndex = 1;
             this.buttonVolverUna.Text = "<";
-            this.buttonVolverUna.UseVisualStyleBackColor = true;
+            this.buttonVolverUna.UseVisualStyleBackColor = false;
             this.buttonVolverUna.Click += new System.EventHandler(this.buttonVolverUna_Click);
             // 
             // buttonAdelantarFin
             // 
+            this.buttonAdelantarFin.BackColor = System.Drawing.Color.Indigo;
+            this.buttonAdelantarFin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdelantarFin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAdelantarFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdelantarFin.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonAdelantarFin.Location = new System.Drawing.Point(410, 412);
             this.buttonAdelantarFin.Name = "buttonAdelantarFin";
             this.buttonAdelantarFin.Size = new System.Drawing.Size(109, 53);
             this.buttonAdelantarFin.TabIndex = 3;
             this.buttonAdelantarFin.Text = ">>";
-            this.buttonAdelantarFin.UseVisualStyleBackColor = true;
+            this.buttonAdelantarFin.UseVisualStyleBackColor = false;
             this.buttonAdelantarFin.Click += new System.EventHandler(this.buttonAdelantarFin_Click);
             // 
             // buttonAdelantarUna
             // 
+            this.buttonAdelantarUna.BackColor = System.Drawing.Color.Indigo;
+            this.buttonAdelantarUna.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdelantarUna.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAdelantarUna.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdelantarUna.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonAdelantarUna.Location = new System.Drawing.Point(294, 412);
             this.buttonAdelantarUna.Name = "buttonAdelantarUna";
             this.buttonAdelantarUna.Size = new System.Drawing.Size(110, 53);
             this.buttonAdelantarUna.TabIndex = 2;
             this.buttonAdelantarUna.Text = ">";
-            this.buttonAdelantarUna.UseVisualStyleBackColor = true;
+            this.buttonAdelantarUna.UseVisualStyleBackColor = false;
             this.buttonAdelantarUna.Click += new System.EventHandler(this.buttonAdelantarUna_Click);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.visionToolStripMenuItem,
@@ -209,11 +226,14 @@ namespace Practica_03
             // 
             // MenuItemCentrada
             // 
+            this.MenuItemCentrada.Checked = true;
+            this.MenuItemCentrada.CheckState = System.Windows.Forms.CheckState.Checked;
             this.MenuItemCentrada.Name = "MenuItemCentrada";
             this.MenuItemCentrada.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
             this.MenuItemCentrada.Size = new System.Drawing.Size(210, 22);
             this.MenuItemCentrada.Text = "Centrada";
+            this.MenuItemCentrada.Click += new System.EventHandler(this.MenuItemCentrada_Click);
             // 
             // MenuItemAjustar
             // 
@@ -222,6 +242,7 @@ namespace Practica_03
             | System.Windows.Forms.Keys.A)));
             this.MenuItemAjustar.Size = new System.Drawing.Size(210, 22);
             this.MenuItemAjustar.Text = "Ajustar";
+            this.MenuItemAjustar.Click += new System.EventHandler(this.MenuItemAjustar_Click);
             // 
             // MenuItemZoom
             // 
@@ -230,6 +251,7 @@ namespace Practica_03
             | System.Windows.Forms.Keys.Z)));
             this.MenuItemZoom.Size = new System.Drawing.Size(210, 22);
             this.MenuItemZoom.Text = "Zoom";
+            this.MenuItemZoom.Click += new System.EventHandler(this.MenuItemZoom_Click);
             // 
             // statusStripNombreArchivo
             // 
@@ -251,6 +273,7 @@ namespace Practica_03
             // 
             this.groupBoxVision.Controls.Add(this.checkBoxVisionEscalaGrises);
             this.groupBoxVision.Controls.Add(this.checkBoxVisionNormal);
+            this.groupBoxVision.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBoxVision.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxVision.Location = new System.Drawing.Point(12, 50);
             this.groupBoxVision.Name = "groupBoxVision";
@@ -306,9 +329,9 @@ namespace Practica_03
             this.radioButtonTamañoZoom.Name = "radioButtonTamañoZoom";
             this.radioButtonTamañoZoom.Size = new System.Drawing.Size(66, 22);
             this.radioButtonTamañoZoom.TabIndex = 2;
-            this.radioButtonTamañoZoom.TabStop = true;
             this.radioButtonTamañoZoom.Text = "Zoom";
             this.radioButtonTamañoZoom.UseVisualStyleBackColor = true;
+            this.radioButtonTamañoZoom.CheckedChanged += new System.EventHandler(this.radioButtonTamañoZoom_CheckedChanged);
             // 
             // radioButtonTamañoAjustar
             // 
@@ -318,13 +341,14 @@ namespace Practica_03
             this.radioButtonTamañoAjustar.Name = "radioButtonTamañoAjustar";
             this.radioButtonTamañoAjustar.Size = new System.Drawing.Size(71, 22);
             this.radioButtonTamañoAjustar.TabIndex = 1;
-            this.radioButtonTamañoAjustar.TabStop = true;
             this.radioButtonTamañoAjustar.Text = "Ajustar";
             this.radioButtonTamañoAjustar.UseVisualStyleBackColor = true;
+            this.radioButtonTamañoAjustar.CheckedChanged += new System.EventHandler(this.radioButtonTamañoAjustar_CheckedChanged);
             // 
             // radioButtonTamañoCentrada
             // 
             this.radioButtonTamañoCentrada.AutoSize = true;
+            this.radioButtonTamañoCentrada.Checked = true;
             this.radioButtonTamañoCentrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonTamañoCentrada.Location = new System.Drawing.Point(26, 61);
             this.radioButtonTamañoCentrada.Name = "radioButtonTamañoCentrada";
@@ -333,15 +357,16 @@ namespace Practica_03
             this.radioButtonTamañoCentrada.TabStop = true;
             this.radioButtonTamañoCentrada.Text = "Centrada";
             this.radioButtonTamañoCentrada.UseVisualStyleBackColor = true;
+            this.radioButtonTamañoCentrada.CheckedChanged += new System.EventHandler(this.radioButtonTamañoCentrada_CheckedChanged);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonNormal,
             this.toolStripButtonGris,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5});
+            this.toolStripButtonCentrada,
+            this.toolStripButtonAjustar,
+            this.toolStripButtonZoom});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(531, 25);
@@ -370,32 +395,37 @@ namespace Practica_03
             this.toolStripButtonGris.Text = "Escala de grises";
             this.toolStripButtonGris.Click += new System.EventHandler(this.toolStripButtonGris_Click);
             // 
-            // toolStripButton3
+            // toolStripButtonCentrada
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Centrada";
+            this.toolStripButtonCentrada.Checked = true;
+            this.toolStripButtonCentrada.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripButtonCentrada.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCentrada.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCentrada.Image")));
+            this.toolStripButtonCentrada.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCentrada.Name = "toolStripButtonCentrada";
+            this.toolStripButtonCentrada.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonCentrada.Text = "Centrada";
+            this.toolStripButtonCentrada.Click += new System.EventHandler(this.toolStripButtonCentrada_Click);
             // 
-            // toolStripButton4
+            // toolStripButtonAjustar
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "Ajustar";
+            this.toolStripButtonAjustar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAjustar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAjustar.Image")));
+            this.toolStripButtonAjustar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAjustar.Name = "toolStripButtonAjustar";
+            this.toolStripButtonAjustar.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonAjustar.Text = "Ajustar";
+            this.toolStripButtonAjustar.Click += new System.EventHandler(this.toolStripButtonAjustar_Click);
             // 
-            // toolStripButton5
+            // toolStripButtonZoom
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "Zoom";
+            this.toolStripButtonZoom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonZoom.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonZoom.Image")));
+            this.toolStripButtonZoom.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonZoom.Name = "toolStripButtonZoom";
+            this.toolStripButtonZoom.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonZoom.Text = "Zoom";
+            this.toolStripButtonZoom.Click += new System.EventHandler(this.toolStripButtonZoom_Click);
             // 
             // comboBoxSelectorImagen
             // 
@@ -536,9 +566,9 @@ namespace Practica_03
         public System.Windows.Forms.ToolStrip toolStrip1;
         public System.Windows.Forms.ToolStripButton toolStripButtonNormal;
         public System.Windows.Forms.ToolStripButton toolStripButtonGris;
-        public System.Windows.Forms.ToolStripButton toolStripButton3;
-        public System.Windows.Forms.ToolStripButton toolStripButton4;
-        public System.Windows.Forms.ToolStripButton toolStripButton5;
+        public System.Windows.Forms.ToolStripButton toolStripButtonCentrada;
+        public System.Windows.Forms.ToolStripButton toolStripButtonAjustar;
+        public System.Windows.Forms.ToolStripButton toolStripButtonZoom;
         public System.Windows.Forms.ComboBox comboBoxSelectorImagen;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.PictureBox pictureBoxImagen;

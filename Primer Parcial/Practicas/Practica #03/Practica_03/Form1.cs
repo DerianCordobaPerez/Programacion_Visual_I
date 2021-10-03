@@ -20,48 +20,43 @@ namespace Practica_03
             _visorBuilder.SetImagenes();
             _visorBuilder.SetImagenesComboBox();
             _visorBuilder.SetImagen();
+            _visorBuilder.SetTamanoImagen("centrada");
         }
 
         private void comboBoxSelectorImagen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _visorBuilder.SetImagen(checkBoxVisionEscalaGrises.Checked);
+            _visorBuilder.SetImagen();
             _visorBuilder.SetToolStripLabel();
         }
 
         private void checkBoxVisionNormal_CheckedChanged(object sender, EventArgs e)
         {
             _visorBuilder.SetOpcionesVisionNormal(true);
-            _visorBuilder.SetImagen();
         }
 
         private void toolStripButtonNormal_Click(object sender, EventArgs e)
         {
             _visorBuilder.SetOpcionesVisionNormal();
-            _visorBuilder.SetImagen();
         }
 
         private void ToolStripMenuItemNormal_Click(object sender, EventArgs e)
         {
             _visorBuilder.SetOpcionesVisionNormal();
-            _visorBuilder.SetImagen();
         }
 
         private void checkBoxVisionEscalaGrises_CheckedChanged(object sender, EventArgs e)
         {
             _visorBuilder.SetOpcionesVisionGris(true);
-            _visorBuilder.SetImagen(true);
         }
 
         private void toolStripButtonGris_Click(object sender, EventArgs e)
         {
             _visorBuilder.SetOpcionesVisionGris();
-            _visorBuilder.SetImagen(true);
         }
 
         private void ToolStripMenuItemGris_Click(object sender, EventArgs e)
         {
             _visorBuilder.SetOpcionesVisionGris();
-            _visorBuilder.SetImagen(true);
         }
 
         private void MenuItemRotarDerecha_Click(object sender, EventArgs e)
@@ -111,6 +106,51 @@ namespace Practica_03
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _visorBuilder.Cerrar();
+        }
+
+        private void radioButtonTamañoCentrada_CheckedChanged(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen("centrada");
+        }
+
+        private void radioButtonTamañoAjustar_CheckedChanged(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen("ajustar");
+        }
+
+        private void radioButtonTamañoZoom_CheckedChanged(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen();
+        }
+
+        private void toolStripButtonCentrada_Click(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen("centrada", true);
+        }
+
+        private void toolStripButtonAjustar_Click(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen("ajustar", true);
+        }
+
+        private void toolStripButtonZoom_Click(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen("", true);
+        }
+
+        private void MenuItemCentrada_Click(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen("centrada", true);
+        }
+
+        private void MenuItemAjustar_Click(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen("ajustar", true);
+        }
+
+        private void MenuItemZoom_Click(object sender, EventArgs e)
+        {
+            _visorBuilder.SetTamanoImagen("", true);
         }
     }
 }

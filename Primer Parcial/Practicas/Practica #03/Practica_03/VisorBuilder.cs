@@ -39,10 +39,10 @@ namespace Practica_03
             _formulario.comboBoxSelectorImagen.SelectedIndex = 0;
         }
 
-        public void SetImagen(bool gris = false)
+        public void SetImagen()
         {
-            var imagen = new Bitmap(new Bitmap($@"{_carpeta}\{_formulario.comboBoxSelectorImagen.Text}", true));
-            _formulario.pictureBoxImagen.Image = !gris ? imagen : ToolStripRenderer.CreateDisabledImage(imagen);
+            var imagen = new Bitmap(new Bitmap($@"{_carpeta}\{_formulario.comboBoxSelectorImagen.Text}"));
+            _formulario.pictureBoxImagen.Image = !_formulario.checkBoxVisionEscalaGrises.Checked ? imagen : ToolStripRenderer.CreateDisabledImage(imagen); 
         }
 
         public void SetToolStripLabel()
@@ -54,23 +54,71 @@ namespace Practica_03
         {
             _formulario.ToolStripMenuItemNormal.Checked = check
                 ? _formulario.toolStripButtonNormal.Checked = _formulario.checkBoxVisionNormal.Checked
-                : _formulario.toolStripButtonNormal.Checked = _formulario.checkBoxVisionNormal.Checked =
-                    !_formulario.checkBoxVisionNormal.Checked;
+                : _formulario.toolStripButtonNormal.Checked = _formulario.checkBoxVisionNormal.Checked = !_formulario.checkBoxVisionNormal.Checked;
 
-
-            if(_formulario.checkBoxVisionNormal.Checked)
-                _formulario.ToolStripMenuItemGris.Checked = _formulario.toolStripButtonGris.Checked = _formulario.checkBoxVisionEscalaGrises.Checked = false;
+            _formulario.ToolStripMenuItemGris.Checked = _formulario.toolStripButtonGris.Checked = _formulario.checkBoxVisionEscalaGrises.Checked = !_formulario.checkBoxVisionNormal.Checked;
+            SetImagen();
         }
 
         public void SetOpcionesVisionGris(bool check = false)
         {
-            _formulario.ToolStripMenuItemGris.Checked = check
+           _formulario.ToolStripMenuItemGris.Checked = check
                 ? _formulario.toolStripButtonGris.Checked = _formulario.checkBoxVisionEscalaGrises.Checked
-                : _formulario.toolStripButtonGris.Checked = _formulario.checkBoxVisionEscalaGrises.Checked = 
-                    !_formulario.checkBoxVisionEscalaGrises.Checked;
+                : _formulario.toolStripButtonGris.Checked = _formulario.checkBoxVisionEscalaGrises.Checked = !_formulario.checkBoxVisionEscalaGrises.Checked;
 
-            if (_formulario.checkBoxVisionEscalaGrises.Checked)
-                _formulario.ToolStripMenuItemNormal.Checked = _formulario.toolStripButtonNormal.Checked = _formulario.checkBoxVisionNormal.Checked = false;
+           _formulario.ToolStripMenuItemNormal.Checked = _formulario.toolStripButtonNormal.Checked = _formulario.checkBoxVisionNormal.Checked = !_formulario.checkBoxVisionEscalaGrises.Checked;
+            SetImagen();
+        }
+
+        public void setOpcionesCentrada(bool check = false)
+        {
+
+            if (check)
+                _formulario.radioButtonTamañoCentrada.Checked = check;
+
+            _formulario.toolStripButtonCentrada.Checked = _formulario.MenuItemCentrada.Checked = _formulario.radioButtonTamañoCentrada.Checked;
+            _formulario.toolStripButtonAjustar.Checked = _formulario.MenuItemAjustar.Checked = false;
+            _formulario.MenuItemZoom.Checked = _formulario.toolStripButtonZoom.Checked = false;
+        }
+
+        public void SetOpcionesAjustar(bool check = false)
+        {
+            if (check)
+                _formulario.radioButtonTamañoAjustar.Checked = check;
+
+            _formulario.toolStripButtonAjustar.Checked = _formulario.MenuItemAjustar.Checked = _formulario.radioButtonTamañoAjustar.Checked;
+            _formulario.toolStripButtonCentrada.Checked = _formulario.MenuItemCentrada.Checked = false;
+            _formulario.MenuItemZoom.Checked = _formulario.toolStripButtonZoom.Checked = false;
+
+        }
+
+        public void SetOpcionesZoom(bool check = false)
+        {
+            if(check)
+                _formulario.radioButtonTamañoZoom.Checked = check;
+
+            _formulario.MenuItemZoom.Checked = _formulario.toolStripButtonZoom.Checked = _formulario.radioButtonTamañoZoom.Checked;
+            _formulario.toolStripButtonAjustar.Checked = _formulario.MenuItemAjustar.Checked = false;
+            _formulario.toolStripButtonCentrada.Checked = _formulario.MenuItemCentrada.Checked = false;
+        }
+
+        public void SetTamanoImagen(string opcion = "", bool check = false)
+        {
+            if (opcion.ToLower().CompareTo("centrada") == 0)
+            {
+                _formulario.pictureBoxImagen.SizeMode = PictureBoxSizeMode.CenterImage;
+                setOpcionesCentrada(check);
+            }
+            else if (opcion.ToLower().CompareTo("ajustar") == 0)
+            {
+                _formulario.pictureBoxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                SetOpcionesAjustar(check);
+            }
+            else
+            {
+                _formulario.pictureBoxImagen.SizeMode = PictureBoxSizeMode.Zoom;
+                SetOpcionesZoom(check);
+            }
         }
 
         public void RotarImagen(bool derecha = false)
@@ -89,6 +137,7 @@ namespace Practica_03
             var formato = ImageFormat.Jpeg;
 
             if (guardarImagen.ShowDialog() != DialogResult.OK) return;
+
             switch(guardarImagen.Filter)
             {
                 case ".jpg":
@@ -112,49 +161,6 @@ namespace Practica_03
         {
             Clipboard.SetImage(_formulario.pictureBoxImagen.Image);
         }
-
-        /*private byte[] ObtenerBytesImagen(Bitmap image, ImageLockMode lockMode, out BitmapData bmpData)
-        {
-            bmpData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height),
-                                     lockMode, image.PixelFormat);
-
-            byte[] imageBytes = new byte[bmpData.Stride * image.Height];
-            Marshal.Copy(bmpData.Scan0, imageBytes, 0, imageBytes.Length);
-
-            return imageBytes;
-        }
-
-        private Bitmap ConvertirGris(Bitmap source)
-        {
-            Bitmap target = new Bitmap(source.Width, source.Height, source.PixelFormat);
-            BitmapData targetData, sourceData;
-
-            byte[] sourceBytes = ObtenerBytesImagen(source, ImageLockMode.ReadOnly, out sourceData);
-            byte[] targetBytes = ObtenerBytesImagen(target, ImageLockMode.ReadWrite, out targetData);
-
-            //recorrer los pixeles
-            for (int i = 0; i < sourceBytes.Length; i += 3)
-            {
-                //ignorar el padding, es decir solo procesar los bytes necesarios
-                if ((i + 3) % (source.Width * 3) > 0)
-                {
-                    //Hallar tono gris
-                    byte y = (byte)(sourceBytes[i + 2] * 0.3f
-                                 + sourceBytes[i + 1] * 0.59f
-                                 + sourceBytes[i] * 0.11f);
-
-                    //Asignar tono gris a cada byte del pixel
-                    targetBytes[i + 2] = targetBytes[i + 1] = targetBytes[i] = y;
-                }
-            }
-
-            Marshal.Copy(targetBytes, 0, targetData.Scan0, targetBytes.Length);
-
-            source.UnlockBits(sourceData);
-            target.UnlockBits(targetData);
-
-            return target;
-        }*/
 
     }
 }
