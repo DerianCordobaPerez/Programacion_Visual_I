@@ -70,21 +70,21 @@ namespace Practica_03
             SetImagen();
         }
 
-        public void setOpcionesCentrada(bool check = false)
+        private void SetOpcionesCentrada(bool check = false)
         {
 
             if (check)
-                _formulario.radioButtonTamañoCentrada.Checked = check;
+                _formulario.radioButtonTamañoCentrada.Checked = true;
 
             _formulario.toolStripButtonCentrada.Checked = _formulario.MenuItemCentrada.Checked = _formulario.radioButtonTamañoCentrada.Checked;
             _formulario.toolStripButtonAjustar.Checked = _formulario.MenuItemAjustar.Checked = false;
             _formulario.MenuItemZoom.Checked = _formulario.toolStripButtonZoom.Checked = false;
         }
 
-        public void SetOpcionesAjustar(bool check = false)
+        private void SetOpcionesAjustar(bool check = false)
         {
             if (check)
-                _formulario.radioButtonTamañoAjustar.Checked = check;
+                _formulario.radioButtonTamañoAjustar.Checked = true;
 
             _formulario.toolStripButtonAjustar.Checked = _formulario.MenuItemAjustar.Checked = _formulario.radioButtonTamañoAjustar.Checked;
             _formulario.toolStripButtonCentrada.Checked = _formulario.MenuItemCentrada.Checked = false;
@@ -92,10 +92,10 @@ namespace Practica_03
 
         }
 
-        public void SetOpcionesZoom(bool check = false)
+        private void SetOpcionesZoom(bool check = false)
         {
             if(check)
-                _formulario.radioButtonTamañoZoom.Checked = check;
+                _formulario.radioButtonTamañoZoom.Checked = true;
 
             _formulario.MenuItemZoom.Checked = _formulario.toolStripButtonZoom.Checked = _formulario.radioButtonTamañoZoom.Checked;
             _formulario.toolStripButtonAjustar.Checked = _formulario.MenuItemAjustar.Checked = false;
@@ -104,12 +104,12 @@ namespace Practica_03
 
         public void SetTamanoImagen(string opcion = "", bool check = false)
         {
-            if (opcion.ToLower().CompareTo("centrada") == 0)
+            if (string.Compare(opcion.ToLower(), "centrada", StringComparison.Ordinal) == 0)
             {
                 _formulario.pictureBoxImagen.SizeMode = PictureBoxSizeMode.CenterImage;
-                setOpcionesCentrada(check);
+                SetOpcionesCentrada(check);
             }
-            else if (opcion.ToLower().CompareTo("ajustar") == 0)
+            else if (string.Compare(opcion.ToLower(), "ajustar", StringComparison.Ordinal) == 0)
             {
                 _formulario.pictureBoxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                 SetOpcionesAjustar(check);
