@@ -1,122 +1,116 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Practica_03
 {
     public partial class Form1 : Form
     {
-        private VisorBuilder visorBuilder;
-        public List<string> imagenes;
+        private readonly VisorBuilder _visorBuilder;
+        public List<string> Imagenes { get; set; }
 
         public Form1()
         {
             InitializeComponent();
-            visorBuilder = new VisorBuilder(this);
+            _visorBuilder = new VisorBuilder(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            visorBuilder.SetImagenes();
-            visorBuilder.SetImagenesComboBox();
-            visorBuilder.SetImagen();
+            _visorBuilder.SetImagenes();
+            _visorBuilder.SetImagenesComboBox();
+            _visorBuilder.SetImagen();
         }
 
         private void comboBoxSelectorImagen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            visorBuilder.SetImagen(checkBoxVisionEscalaGrises.Checked);
-            visorBuilder.SetToolStripLabel();
+            _visorBuilder.SetImagen(checkBoxVisionEscalaGrises.Checked);
+            _visorBuilder.SetToolStripLabel();
         }
 
         private void checkBoxVisionNormal_CheckedChanged(object sender, EventArgs e)
         {
-            visorBuilder.SetOpcionesVisionNormal(true);
-            visorBuilder.SetImagen();
+            _visorBuilder.SetOpcionesVisionNormal(true);
+            _visorBuilder.SetImagen();
         }
 
         private void toolStripButtonNormal_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetOpcionesVisionNormal();
-            visorBuilder.SetImagen();
+            _visorBuilder.SetOpcionesVisionNormal();
+            _visorBuilder.SetImagen();
         }
 
         private void ToolStripMenuItemNormal_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetOpcionesVisionNormal();
-            visorBuilder.SetImagen();
+            _visorBuilder.SetOpcionesVisionNormal();
+            _visorBuilder.SetImagen();
         }
 
         private void checkBoxVisionEscalaGrises_CheckedChanged(object sender, EventArgs e)
         {
-            visorBuilder.SetOpcionesVisionGris(true);
-            visorBuilder.SetImagen(true);
+            _visorBuilder.SetOpcionesVisionGris(true);
+            _visorBuilder.SetImagen(true);
         }
 
         private void toolStripButtonGris_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetOpcionesVisionGris();
-            visorBuilder.SetImagen(true);
+            _visorBuilder.SetOpcionesVisionGris();
+            _visorBuilder.SetImagen(true);
         }
 
         private void ToolStripMenuItemGris_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetOpcionesVisionGris();
-            visorBuilder.SetImagen(true);
+            _visorBuilder.SetOpcionesVisionGris();
+            _visorBuilder.SetImagen(true);
         }
 
         private void MenuItemRotarDerecha_Click(object sender, EventArgs e)
         {
-            visorBuilder.RotarImagen(true);
+            _visorBuilder.RotarImagen(true);
         }
 
         private void MenuItemRotarIzquierda_Click(object sender, EventArgs e)
         {
-            visorBuilder.RotarImagen();
+            _visorBuilder.RotarImagen();
         }
 
         private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetClipboardImagen();
+            _visorBuilder.SetClipboardImagen();
         }
 
         private void MenuItemGuardar_Click(object sender, EventArgs e)
         {
-            visorBuilder.GuardarImagen();
+            _visorBuilder.GuardarImagen();
         }
 
         private void buttonVolverInicio_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetPosicionImagen();
+            _visorBuilder.SetPosicionImagen();
         }
 
         private void buttonAdelantarFin_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetPosicionImagen(imagenes.Count - 1);
+            _visorBuilder.SetPosicionImagen(Imagenes.Count - 1);
         }
 
         private void buttonVolverUna_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetPosicionImagen(
-                (comboBoxSelectorImagen.SelectedIndex - 1) < 0 ? imagenes.Count - 1 : comboBoxSelectorImagen.SelectedIndex - 1
+            _visorBuilder.SetPosicionImagen(
+                (comboBoxSelectorImagen.SelectedIndex - 1) < 0 ? Imagenes.Count - 1 : comboBoxSelectorImagen.SelectedIndex - 1
             );
         }
 
         private void buttonAdelantarUna_Click(object sender, EventArgs e)
         {
-            visorBuilder.SetPosicionImagen(
-                (comboBoxSelectorImagen.SelectedIndex + 1) > (imagenes.Count - 1) ? 0 : comboBoxSelectorImagen.SelectedIndex + 1
+            _visorBuilder.SetPosicionImagen(
+                (comboBoxSelectorImagen.SelectedIndex + 1) > (Imagenes.Count - 1) ? 0 : comboBoxSelectorImagen.SelectedIndex + 1
             );
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            visorBuilder.Cerrar();
+            _visorBuilder.Cerrar();
         }
     }
 }

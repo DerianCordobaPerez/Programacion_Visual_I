@@ -1,37 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
 
 namespace Practica_03
 {
-    class VisorBuilder
+    internal class VisorBuilder
     {
 
-        private Form1 formulario;
+        private readonly Form1 _formulario;
+        private readonly string _carpeta = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
-        private static readonly string carpeta = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-        
         public VisorBuilder(Form1 formulario)
         {
-            this.formulario = formulario;
+            _formulario = formulario;
         }
 
         public void Cerrar()
         {
-            formulario.Close();
+            _formulario.Close();
         }
 
         public void SetImagenes()
         {
-            formulario.imagenes = new DirectoryInfo(carpeta).GetFiles("*.*")
+            _formulario.Imagenes = new DirectoryInfo(_carpeta).GetFiles("*.*")
                 .Where(imagen => Regex.IsMatch(imagen.Name, @"\.jpg$|\.png$|\.jpeg$"))
                 .OrderBy(imagen => imagen.Name)
                 .Select(imagen => imagen.Name)
@@ -40,102 +35,85 @@ namespace Practica_03
 
         public void SetImagenesComboBox()
         {
-            formulario.imagenes.ForEach(imagen => formulario.comboBoxSelectorImagen.Items.Add(imagen));
-            formulario.comboBoxSelectorImagen.SelectedIndex = 0;
+            _formulario.Imagenes.ForEach(imagen => _formulario.comboBoxSelectorImagen.Items.Add(imagen));
+            _formulario.comboBoxSelectorImagen.SelectedIndex = 0;
         }
 
         public void SetImagen(bool gris = false)
         {
-            Bitmap imagen = new Bitmap(new Bitmap($@"{carpeta}\{formulario.comboBoxSelectorImagen.Text}", true));
-            if (!gris)
-                formulario.pictureBoxImagen.Image = imagen;
-            else
-                formulario.pictureBoxImagen.Image = ConvertirGris(imagen);
+            var imagen = new Bitmap(new Bitmap($@"{_carpeta}\{_formulario.comboBoxSelectorImagen.Text}", true));
+            _formulario.pictureBoxImagen.Image = !gris ? imagen : ToolStripRenderer.CreateDisabledImage(imagen);
         }
 
         public void SetToolStripLabel()
         {
-            formulario.toolStripStatusNombreArchivo.Text = $@"{carpeta}\{formulario.comboBoxSelectorImagen.Text}";
+            _formulario.toolStripStatusNombreArchivo.Text = $@"{_carpeta}\{_formulario.comboBoxSelectorImagen.Text}";
         }
 
         public void SetOpcionesVisionNormal(bool check = false)
         {
-            
-            if(check)
-                formulario.ToolStripMenuItemNormal.Checked = formulario.toolStripButtonNormal.Checked = formulario.checkBoxVisionNormal.Checked;
-            else
-                formulario.ToolStripMenuItemNormal.Checked = formulario.toolStripButtonNormal.Checked = formulario.checkBoxVisionNormal.Checked = !formulario.checkBoxVisionNormal.Checked;
+            _formulario.ToolStripMenuItemNormal.Checked = check
+                ? _formulario.toolStripButtonNormal.Checked = _formulario.checkBoxVisionNormal.Checked
+                : _formulario.toolStripButtonNormal.Checked = _formulario.checkBoxVisionNormal.Checked =
+                    !_formulario.checkBoxVisionNormal.Checked;
 
 
-            if(formulario.checkBoxVisionNormal.Checked)
-                formulario.ToolStripMenuItemGris.Checked = formulario.toolStripButtonGris.Checked = formulario.checkBoxVisionEscalaGrises.Checked = false;
+            if(_formulario.checkBoxVisionNormal.Checked)
+                _formulario.ToolStripMenuItemGris.Checked = _formulario.toolStripButtonGris.Checked = _formulario.checkBoxVisionEscalaGrises.Checked = false;
         }
 
         public void SetOpcionesVisionGris(bool check = false)
         {
-            if(check)
-                formulario.ToolStripMenuItemGris.Checked = formulario.toolStripButtonGris.Checked = formulario.checkBoxVisionEscalaGrises.Checked;
-            else
-                formulario.ToolStripMenuItemGris.Checked = formulario.toolStripButtonGris.Checked = formulario.checkBoxVisionEscalaGrises.Checked = !formulario.checkBoxVisionEscalaGrises.Checked;
+            _formulario.ToolStripMenuItemGris.Checked = check
+                ? _formulario.toolStripButtonGris.Checked = _formulario.checkBoxVisionEscalaGrises.Checked
+                : _formulario.toolStripButtonGris.Checked = _formulario.checkBoxVisionEscalaGrises.Checked = 
+                    !_formulario.checkBoxVisionEscalaGrises.Checked;
 
-            if (formulario.checkBoxVisionEscalaGrises.Checked)
-                formulario.ToolStripMenuItemNormal.Checked = formulario.toolStripButtonNormal.Checked = formulario.checkBoxVisionNormal.Checked = false;
-
-        }
-
-        public void SetOpcionesTamaño()
-        {
-            
-        }
-
-        public void SetImagenCentrada()
-        {
-            formulario.pictureBoxImagen.SizeMode = PictureBoxSizeMode.CenterImage;
+            if (_formulario.checkBoxVisionEscalaGrises.Checked)
+                _formulario.ToolStripMenuItemNormal.Checked = _formulario.toolStripButtonNormal.Checked = _formulario.checkBoxVisionNormal.Checked = false;
         }
 
         public void RotarImagen(bool derecha = false)
         {
-            Image imagen = formulario.pictureBoxImagen.Image;
+            var imagen = _formulario.pictureBoxImagen.Image;
             imagen.RotateFlip(!derecha ? RotateFlipType.Rotate270FlipNone : RotateFlipType.Rotate90FlipNone);
-            formulario.pictureBoxImagen.Image = imagen;
+            _formulario.pictureBoxImagen.Image = imagen;
         }
 
         public void GuardarImagen()
         {
-            SaveFileDialog guardarImagen = new SaveFileDialog();
+            var guardarImagen = new SaveFileDialog();
             guardarImagen.CheckPathExists = true;
-            guardarImagen.Filter = "Formato JPG (*.jpg)|.jpg|Formato PNG (*.png)|.png";
+            guardarImagen.Filter = @"Formato JPG (*.jpg)|.jpg|Formato PNG (*.png)|.png";
             guardarImagen.FilterIndex = 1;
-            ImageFormat formato = ImageFormat.Jpeg;
+            var formato = ImageFormat.Jpeg;
 
-            if(guardarImagen.ShowDialog() == DialogResult.OK)
+            if (guardarImagen.ShowDialog() != DialogResult.OK) return;
+            switch(guardarImagen.Filter)
             {
-                switch(guardarImagen.Filter)
-                {
-                    case ".jpg":
-                        formato = ImageFormat.Jpeg;
-                        break;
-                    case ".png":
-                        formato = ImageFormat.Png;
-                        break;
-                }
-
-                formulario.pictureBoxImagen.Image.Save(guardarImagen.FileName, formato);
-                MessageBox.Show("Imagen guardada con éxito");
+                case ".jpg":
+                    formato = ImageFormat.Jpeg;
+                    break;
+                case ".png":
+                    formato = ImageFormat.Png;
+                    break;
             }
+
+            _formulario.pictureBoxImagen.Image.Save(guardarImagen.FileName, formato);
+            MessageBox.Show(@"Imagen guardada con éxito");
         }
 
         public void SetPosicionImagen(int indice = 0)
         {
-            formulario.comboBoxSelectorImagen.SelectedIndex = indice;
+            _formulario.comboBoxSelectorImagen.SelectedIndex = indice;
         }
 
         public void SetClipboardImagen()
         {
-            Clipboard.SetImage(formulario.pictureBoxImagen.Image);
+            Clipboard.SetImage(_formulario.pictureBoxImagen.Image);
         }
 
-        private byte[] ObtenerBytesImagen(Bitmap image, ImageLockMode lockMode, out BitmapData bmpData)
+        /*private byte[] ObtenerBytesImagen(Bitmap image, ImageLockMode lockMode, out BitmapData bmpData)
         {
             bmpData = image.LockBits(new Rectangle(0, 0, image.Width, image.Height),
                                      lockMode, image.PixelFormat);
@@ -176,7 +154,7 @@ namespace Practica_03
             target.UnlockBits(targetData);
 
             return target;
-        }
+        }*/
 
     }
 }
