@@ -1,10 +1,20 @@
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\obj\Debug\Practica_03.Form1.resources
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\obj\Debug\Practica_03.Properties.Resources.resources
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\obj\Debug\Practica_03.csproj.GenerateResource.cache
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\obj\Debug\Practica_03.csproj.CoreCompileInputs.cache
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\bin\Debug\Practica_03.exe.config
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\bin\Debug\Practica_03.exe
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\bin\Debug\Practica_03.pdb
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\obj\Debug\Practica_03.exe
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\obj\Debug\Practica_03.pdb
-C:\Users\Derian Cordoba\Documents\Programacion_Visual_I\Primer Parcial\Practicas\Practica #03\Practica_03\obj\Debug\Practica_03.csproj.AssemblyReference.cache
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.Form1.resources
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.Properties.Resources.resources
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.csproj.GenerateResource.cache
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.csproj.CoreCompileInputs.cache
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/bin/Debug/Practica_03.exe.config
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/bin/Debug/Practica_03.exe
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/bin/Debug/Practica_03.pdb
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.exe
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.pdb
+C:/Users/Derian Cordoba/Documents/Programacion_Visual_I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.csproj.AssemblyReference.cache
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/bin/Debug/Practica_03.exe.config
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/bin/Debug/Practica_03.exe
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/bin/Debug/Practica_03.pdb
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.csprojAssemblyReference.cache
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.Form1.resources
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.Properties.Resources.resources
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.csproj.GenerateResource.cache
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.csproj.CoreCompileInputs.cache
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.exe
+/home/derian-cordoba/Documentos/Universidad/CLASES/TERCER AÑO/SEGUNDO SEMESTRE/Programacion Visual I/Primer Parcial/Practicas/Practica #03/Practica_03/obj/Debug/Practica_03.pdb
